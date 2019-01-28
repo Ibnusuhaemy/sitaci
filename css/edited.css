@@ -1,0 +1,40 @@
+/* --- Navbar --- */
+h1 a.navbar-brand{
+  height: auto;
+  background-color: #fff;
+  padding: 12px 0;
+  text-align: center;
+}
+.navbar-brand > img{
+  width: 120px;
+  height: auto;
+  display: inline-block;
+}
+.navbar-default .navbar-brand:hover{
+  background-color: #fff;
+}
+
+/* Table Content */
+.top-content label{
+  font-size: 14px;
+}
+.top-content .btn{
+  margin-bottom: 15px;
+}
+.btn-red{
+  font-size: 1em;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 0.5em 1.5em;
+  background-color: #D95459;
+  margin-bottom: 15px;
+}
+.btn-red:hover{
+  background-color: #FBB03B;
+}
+
+/* Form */
+.new-form .form-group .block-label{
+  display: block;
+}
