@@ -20,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <script src="js/jquery.min.js"></script>
+<!-- <script type= "text/javascript" src = "js/countries.js"></script> -->
 
 <!-- Mainly scripts -->
 <script src="js/jquery.metisMenu.js"></script>
@@ -225,21 +226,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <a href="part-dashboard.html" class="btn btn-red">Kembali</a>
       <h3 id="forms-example">Add new Sparepart data</h3>
       <form>
-        <div class="form-group">
+        <div class="form-group" id="country-codes">
           <label for="bu">BU</label>
-          <input type="email" class="form-control" id="bu" placeholder="BU">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+          <select id="noBU" class="form-control">
+            <option data-text="-- Pilih No BU --" value="-- Pilih No BU --"> </option>
+            <option data-text="7111 Die Casting Line 1" value="T7111"></option>
+            <option data-text="7121 Cilinder Line 1" value="T7121"></option>
+            <option data-text="7131 Housing Line 1" value="T7131"></option>
+            <option data-text="7141 Shaft Line 1" value="T7141"></option>
+            <option data-text="7151 Swash Line 1" value="T7151"></option>
+            <option data-text="7161 Shaft Swash Line 1" value="T7161"></option>
+          </select>
         </div>
         <div class="form-group">
           <label for="asset">Nomor Asset</label>
-          <input type="email" class="form-control" id="asset" placeholder="Nomor Assets">
+          <select id="noAset" class="form-control" onChange="check();">
+              <option value="">-- Pilih No Asset -- </option>
+          </select>
         </div>
         <div class="form-group">
           <label for="remark">Remark</label>
-          <input type="email" class="form-control" id="remark" placeholder="Remark">
+          <input type="text" class="form-control" id="remark" placeholder="Remark">
         </div>
         <div class="form-group">
           <label for="member">Member</label>
-          <input type="email" class="form-control" id="member" placeholder="Member">
+          <input type="text" class="form-control" id="member" placeholder="Member">
         </div>
         <div class="form-group">
           <label for="type" class="block-label">Scan QR Code Here</label>
@@ -262,11 +274,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="form-group">
           <label for="type" class="block-label">Type</label>
-          <input type="email" class="form-control" id="type" placeholder="Type">
+          <input type="text" class="form-control" id="type" placeholder="Type">
         </div>
         <div class="form-group">
           <label for="jumlah">Jumlah</label>
-          <input type="email" class="form-control" id="jumlah" placeholder="Jumlah">
+          <input type="text" class="form-control" id="jumlah" placeholder="Jumlah">
         </div>
         <input type="submit" class="btn btn-red" value="Submit">
       </form>
@@ -288,6 +300,83 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/scripts.js"></script>
 	<!--//scrolling js-->
 	<script src="js/bootstrap.min.js"> </script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#noBU").change(function () {
+        var val = $(this).val();
+        if (val == "-- Pilih No BU --") {
+          $("#noAset").html("<option data-text='-- Pilih No Asset --' value='-- Pilih No Asset --'></option>");
+        } else if (val == "T7111") {
+            $("#noAset").html(
+              "<option data-text='-- Pilih No Asset --' value='-- Pilih No Asset --'></option><option data-text='Die Casting Machine-1' value='ME-T7111-96-001'>Die Casting Machine-1</option><option data-text='Melting Furnace-1' value='ME-T7111-96-002'>Melting Furnace-1</option><option data-text='Ingot Charging' value='ME-T7111-96-003'>Ingot Charging</option><option data-text='Oil Mixing-1' value='ME-T7111-96-004'>Oil Mixing-1</option><option data-text='Mix Collector-1' value='ME-T7111-96-005'>Mix Collector-1</option>"
+            );
+        } else if (val == "T7121") {
+            $("#noAset").html(
+              "<option data-text='-- Pilih No Asset --' value='-- Pilih No Asset --'></option><option data-text='Die Casting Machine-2' value='ME-T7121-96-001'>Die Casting Machine-2</option><option data-text='Melting Furnace-2' value='ME-T7121-96-002'>Melting Furnace-2</option><option data-text='Ingot Charging' value='ME-T7121-96-003'>Ingot Charging</option><option data-text='Oil Mixing-2' value='ME-T7121-96-004'>Oil Mixing-2</option><option data-text='Mix Collector-2' value='ME-T7121-96-005'>Mix Collector-2</option>"
+            );
+        } else if (val == "T7131") {
+            $("#noAset").html(
+              "<option data-text='-- Pilih No Asset --' value='-- Pilih No Asset --'></option><option data-text='Die Casting Machine-3' value='ME-T7131-96-001'>Die Casting Machine-3</option><option data-text='Melting Furnace-3' value='ME-T7131-96-002'>Melting Furnace-3</option><option data-text='Ingot Charging' value='ME-T7131-96-003'>Ingot Charging</option><option data-text='Oil Mixing-3' value='ME-T7131-96-004'>Oil Mixing-3</option><option data-text='Mix Collector-3' value='ME-T7131-96-005'>Mix Collector-3</option>"
+            );
+        } else if (val == "T7141") {
+            $("#noAset").html(
+              "<option data-text='-- Pilih No Asset --' value='-- Pilih No Asset --'></option><option data-text='Die Casting Machine-4' value='ME-T7141-96-001'>Die Casting Machine-4</option><option data-text='Melting Furnace-4' value='ME-T7141-96-002'>Melting Furnace-4</option><option data-text='Ingot Charging' value='ME-T7141-96-003'>Ingot Charging</option><option data-text='Oil Mixing-4' value='ME-T7141-96-004'>Oil Mixing-4</option><option data-text='Mix Collector-4' value='ME-T7141-96-005'>Mix Collector-4</option>"
+            );
+        } else if (val == "T7151") {
+            $("#noAset").html(
+              "<option data-text='-- Pilih No Asset --' value='-- Pilih No Asset --'></option><option data-text='Die Casting Machine-5' value='ME-T7151-96-001'>Die Casting Machine-5</option><option data-text='Melting Furnace-5' value='ME-T7151-96-002'>Melting Furnace-5</option><option data-text='Ingot Charging' value='ME-T7151-96-003'>Ingot Charging</option><option data-text='Oil Mixing-5' value='ME-T7151-96-004'>Oil Mixing-5</option><option data-text='Mix Collector-5' value='ME-T7151-96-005'>Mix Collector-5</option>"
+            );
+        }else if (val == "T7161") {
+            $("#noAset").html(
+              "<option data-text='-- Pilih No Asset --' value='-- Pilih No Asset --'></option><option data-text='Die Casting Machine-6' value='ME-T7161-96-001'>Die Casting Machine-6</option><option data-text='Melting Furnace-6' value='ME-T7161-96-002'>Melting Furnace-6</option><option data-text='Ingot Charging' value='ME-T7161-96-003'>Ingot Charging</option><option data-text='Oil Mixing-6' value='ME-T7161-96-004'>Oil Mixing-6</option><option data-text='Mix Collector-6' value='ME-T7161-96-005'>Mix Collector-6</option>"
+            );
+        } else if (val == "-- Pilih No BU --") {
+            $("#noAset").html("<option value=''>--Pilih No Asset--</option>");
+        }
+    });
+
+    $('#noAset option:selected').html($('#noAset option:selected').attr('value')); // already changed onload
+
+    $('#noAset').on('change mouseleave', function () {
+       $('#noAset option').each(function () {
+           $(this).html($(this).attr('data-text'));
+       });
+       $('#noAset option:selected').html($('#noAset option:selected').attr('value'));
+       $(this).blur();
+    });
+    $('#noAset').on('focus', function () {
+       $('#noAset option').each(function () {
+           $(this).html($(this).attr('data-text'));
+       });
+    });
+});
+</script>
+
+<script type="text/javascript">
+   $('#noBU option:selected').html($('#noBU option:selected').attr('value')); // already changed onload
+
+   $('#noBU').on('change mouseleave', function () {
+       $('#noBU option').each(function () {
+           $(this).html($(this).attr('data-text'));
+       });
+       $('#noBU option:selected').html($('#noBU option:selected').attr('value'));
+       $(this).blur();
+   });
+   $('#noBU').on('focus', function () {
+       $('#noBU option').each(function () {
+           $(this).html($(this).attr('data-text'));
+       });
+   });
+</script>
+
+<script type="text/javascript">
+  function check() {
+    var noAset = document.getElementById("noAset");
+    document.getElementById("remark").value = noAset.options[noAset.selectedIndex].text;
+  }
+</script>
+
 </body>
 </html>
 
